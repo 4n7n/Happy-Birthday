@@ -1,0 +1,1173 @@
+/* ===== DISEÑO RESPONSIVE PARA CUMPLEAÑOS ===== */
+
+/* ===== VARIABLES RESPONSIVE ===== */
+:root {
+    --mobile-padding: 1rem;
+    --tablet-padding: 1.5rem;
+    --desktop-padding: 2rem;
+    --mobile-gap: 1rem;
+    --tablet-gap: 1.5rem;
+    --desktop-gap: 2rem;
+    --mobile-font-scale: 0.8;
+    --tablet-font-scale: 0.9;
+    --desktop-font-scale: 1;
+}
+
+/* ===== BREAKPOINTS PERSONALIZADOS ===== */
+/* Extra Small: 0px - 479px */
+/* Small: 480px - 767px */
+/* Medium: 768px - 1023px */
+/* Large: 1024px - 1199px */
+/* Extra Large: 1200px+ */
+
+/* ===== EXTRA LARGE DEVICES (1200px+) ===== */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 3rem;
+    }
+    
+    .hero-section {
+        min-height: 100vh;
+        padding: 3rem 0;
+    }
+    
+    .main-title {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+    }
+    
+    .cake-animation {
+        font-size: 10rem;
+        margin: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.3rem;
+        max-width: 800px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+    
+    .message-card {
+        padding: 4rem;
+        max-width: 1000px;
+    }
+    
+    .heartfelt-message {
+        font-size: 1.4rem;
+        line-height: 2;
+    }
+    
+    .counter-card {
+        padding: 4rem;
+        max-width: 800px;
+    }
+    
+    .counter-number {
+        font-size: 5rem;
+    }
+    
+    .special-card {
+        max-width: 600px;
+        height: 400px;
+    }
+    
+    .button-group {
+        gap: 2rem;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 18px 36px;
+        font-size: 1.3rem;
+    }
+}
+
+/* ===== LARGE DEVICES (1024px - 1199px) ===== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+    
+    .main-title {
+        font-size: 5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .cake-animation {
+        font-size: 8rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .message-card {
+        padding: 3.5rem;
+    }
+    
+    .counter-card {
+        padding: 3.5rem;
+    }
+    
+    .special-card {
+        height: 380px;
+    }
+}
+
+/* ===== MEDIUM DEVICES (768px - 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 var(--tablet-padding);
+    }
+    
+    .hero-section {
+        min-height: 90vh;
+        padding: 2rem 0;
+    }
+    
+    .main-title {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 0px var(--white-1), 
+                     4px 4px 0px var(--pink-4),
+                     6px 6px 0px var(--blue-4);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cake-animation {
+        font-size: 6rem;
+        margin: 2rem 0;
+    }
+    
+    .sparkle-border {
+        padding: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        max-width: 500px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--tablet-gap);
+    }
+    
+    .photo-item {
+        padding: 12px;
+    }
+    
+    .photo-item img {
+        height: 200px;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--tablet-gap);
+    }
+    
+    .wish-card {
+        padding: 1.5rem;
+    }
+    
+    .wish-icon {
+        font-size: 2.5rem;
+    }
+    
+    .wish-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    .message-card {
+        padding: 2.5rem;
+        max-width: 700px;
+    }
+    
+    .message-title {
+        font-size: 2.5rem;
+    }
+    
+    .heartfelt-message {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .signature {
+        font-size: 1.2rem;
+    }
+    
+    .counter-card {
+        padding: 2.5rem;
+        max-width: 500px;
+    }
+    
+    .counter-card h3 {
+        font-size: 1.8rem;
+    }
+    
+    .counter-number {
+        font-size: 3.5rem;
+    }
+    
+    .counter-label {
+        font-size: 1rem;
+    }
+    
+    .special-card {
+        max-width: 450px;
+        height: 320px;
+    }
+    
+    .card-front,
+    .card-back {
+        padding: 1.5rem;
+    }
+    
+    .card-message h4 {
+        font-size: 1.6rem;
+    }
+    
+    .card-message p {
+        font-size: 1rem;
+    }
+    
+    .button-group {
+        gap: 1.5rem;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 14px 28px;
+        font-size: 1.05rem;
+    }
+    
+    .gallery-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+    
+    .footer-decoration {
+        font-size: 1.8rem;
+        gap: 1.3rem;
+    }
+    
+    /* Ajustes específicos para tablet */
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 60px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* ===== SMALL DEVICES (480px - 767px) ===== */
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        padding: 0 var(--mobile-padding);
+    }
+    
+    .hero-section {
+        min-height: 85vh;
+        padding: 1.5rem 0;
+    }
+    
+    .main-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 0px var(--white-1), 
+                     2px 2px 0px var(--pink-4),
+                     3px 3px 0px var(--blue-4);
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cake-animation {
+        font-size: 5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .sparkle-border {
+        padding: 1.2rem;
+        margin: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        max-width: 400px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--mobile-gap);
+    }
+    
+    .photo-item {
+        padding: 10px;
+    }
+    
+    .photo-item img {
+        height: 180px;
+    }
+    
+    .photo-item h4 {
+        font-size: 1rem;
+        padding: 0.8rem 0 0.3rem 0;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--mobile-gap);
+    }
+    
+    .wish-card {
+        padding: 1.2rem;
+    }
+    
+    .wish-icon {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .wish-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .wish-card p {
+        font-size: 0.9rem;
+    }
+    
+    .message-card {
+        padding: 2rem;
+        max-width: 100%;
+    }
+    
+    .message-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .heart-divider {
+        font-size: 1.5rem;
+        margin: 0.8rem 0;
+    }
+    
+    .heartfelt-message {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+    
+    .signature {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .signature::before,
+    .signature::after {
+        left: -20px;
+        right: -20px;
+    }
+    
+    .counter-card {
+        padding: 2rem;
+        max-width: 100%;
+    }
+    
+    .counter-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .counter-number {
+        font-size: 3rem;
+    }
+    
+    .counter-label {
+        font-size: 0.95rem;
+    }
+    
+    .count-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .special-card {
+        max-width: 100%;
+        height: 280px;
+    }
+    
+    .card-front,
+    .card-back {
+        padding: 1.2rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .card-content p {
+        font-size: 1rem;
+    }
+    
+    .card-message h4 {
+        font-size: 1.4rem;
+    }
+    
+    .card-message p {
+        font-size: 0.95rem;
+    }
+    
+    .ribbon {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .button-group {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        width: 200px;
+        justify-content: center;
+    }
+    
+    .gallery-controls {
+        gap: 0.8rem;
+    }
+    
+    .gallery-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .footer-decoration {
+        font-size: 1.6rem;
+        gap: 1rem;
+    }
+    
+    /* Ajustes específicos para móviles pequeños */
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ===== EXTRA SMALL DEVICES (0px - 479px) ===== */
+@media (max-width: 479px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-section {
+        min-height: 80vh;
+        padding: 1rem 0;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        text-shadow: 1px 1px 0px var(--white-1), 
+                     2px 2px 0px var(--pink-4);
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .cake-animation {
+        font-size: 4rem;
+        margin: 1rem 0;
+    }
+    
+    .sparkle-border {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .candles-glow {
+        width: 50px;
+        height: 50px;
+        top: -15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        max-width: 300px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .photo-item {
+        padding: 8px;
+    }
+    
+    .photo-item img {
+        height: 160px;
+    }
+    
+    .photo-item h4 {
+        font-size: 0.95rem;
+        padding: 0.6rem 0 0.2rem 0;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .wish-card {
+        padding: 1rem;
+    }
+    
+    .wish-icon {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .wish-card h4 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .wish-card p {
+        font-size: 0.85rem;
+    }
+    
+    .message-card {
+        padding: 1.5rem;
+    }
+    
+    .message-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .heart-divider {
+        font-size: 1.3rem;
+        margin: 0.6rem 0;
+    }
+    
+    .heartfelt-message {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    
+    .signature {
+        font-size: 1rem;
+        margin-top: 1.2rem;
+    }
+    
+    .signature::before,
+    .signature::after {
+        display: none;
+    }
+    
+    .counter-card {
+        padding: 1.5rem;
+    }
+    
+    .counter-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .counter-display {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .counter-number {
+        font-size: 2.5rem;
+    }
+    
+    .counter-label {
+        font-size: 0.9rem;
+    }
+    
+    .count-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .special-card {
+        height: 250px;
+    }
+    
+    .card-front,
+    .card-back {
+        padding: 1rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .card-content p {
+        font-size: 0.9rem;
+    }
+    
+    .card-message h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .card-message p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .ribbon {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .button-group {
+        gap: 0.8rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        width: 180px;
+        justify-content: center;
+    }
+    
+    .btn-icon {
+        font-size: 1rem;
+    }
+    
+    .gallery-controls {
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+    }
+    
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .footer-section {
+        padding: 2rem 0;
+    }
+    
+    .footer-decoration {
+        font-size: 1.4rem;
+        gap: 0.8rem;
+    }
+    
+    /* Ajustes específicos para pantallas muy pequeñas */
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 40px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Efectos específicos para móviles */
+    .particle {
+        display: none;
+    }
+    
+    .floating-hearts {
+        display: none;
+    }
+    
+    .confetti-piece {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .special-message {
+        padding: 1.5rem 2rem;
+        font-size: 1.2rem;
+        margin: 0 1rem;
+    }
+}
+
+/* ===== ORIENTACIÓN LANDSCAPE EN MÓVILES ===== */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cake-animation {
+        font-size: 3.5rem;
+        margin: 0.8rem 0;
+    }
+    
+    .button-group {
+        gap: 0.8rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        width: auto;
+    }
+    
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .message-card {
+        padding: 1.2rem;
+    }
+    
+    .counter-card {
+        padding: 1.2rem;
+    }
+    
+    .special-card {
+        height: 200px;
+    }
+}
+
+/* ===== DISPOSITIVOS CON PANTALLAS ALTAS ===== */
+@media (min-height: 900px) {
+    .hero-section {
+        min-height: 100vh;
+    }
+    
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 100px 0;
+    }
+}
+
+/* ===== DISPOSITIVOS CON PANTALLAS BAJAS ===== */
+@media (max-height: 600px) {
+    .hero-section {
+        min-height: 90vh;
+        padding: 1rem 0;
+    }
+    
+    .main-title {
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        margin-bottom: 1rem;
+    }
+    
+    .cake-animation {
+        margin: 0.8rem 0;
+    }
+    
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        padding: 40px 0;
+    }
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .cake-animation {
+        animation: none;
+    }
+    
+    .celebrate-button {
+        animation: none;
+    }
+    
+    .particle {
+        animation: none;
+    }
+    
+    .floating-heart {
+        animation: none;
+    }
+    
+    .confetti-piece {
+        animation: none;
+    }
+}
+
+/* ===== MODO OSCURO ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --white-1: #1a1a1a;
+        --white-2: #2d2d2d;
+        --white-3: #404040;
+        --white-4: #525252;
+        --white-5: #666666;
+        
+        --dark-1: #ffffff;
+        --dark-2: #f8f9fa;
+        --dark-3: #e9ecef;
+        --dark-4: #dee2e6;
+        --dark-5: #ced4da;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #2d1b69 0%, #11998e 50%, #38ef7d 100%);
+    }
+    
+    .glass-effect {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .message-card {
+        background: rgba(0, 0, 0, 0.7);
+        color: var(--white-1);
+    }
+    
+    .wish-card {
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white-1);
+    }
+    
+    .counter-card {
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white-1);
+    }
+    
+    .photo-item {
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white-1);
+    }
+}
+
+/* ===== IMPRESIÓN ===== */
+@media print {
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    .hero-section {
+        page-break-inside: avoid;
+    }
+    
+    .memories-section,
+    .message-section,
+    .wishes-section,
+    .counter-section,
+    .card-section {
+        page-break-inside: avoid;
+        padding: 20px 0;
+    }
+    
+    .photo-gallery {
+        display: block;
+    }
+    
+    .photo-item {
+        display: inline-block;
+        width: 45%;
+        margin: 10px;
+        break-inside: avoid;
+    }
+    
+    .wishes-grid {
+        display: block;
+    }
+    
+    .wish-card {
+        display: inline-block;
+        width: 45%;
+        margin: 10px;
+        break-inside: avoid;
+    }
+    
+    .button-group,
+    .gallery-controls,
+    #particles-container,
+    #effects-container,
+    #confetti-container {
+        display: none !important;
+    }
+    
+    .special-card {
+        height: auto;
+    }
+    
+    .card-front,
+    .card-back {
+        position: static;
+        transform: none;
+        backface-visibility: visible;
+    }
+    
+    .card-back {
+        margin-top: 20px;
+    }
+}
+
+/* ===== OPTIMIZACIONES DE RENDIMIENTO ===== */
+@media (max-width: 767px) {
+    .will-change-transform {
+        will-change: auto;
+    }
+    
+    .gpu-accelerated {
+        transform: none;
+    }
+    
+    /* Reducir animaciones en móviles */
+    .cake-animation {
+        animation-duration: 3s;
+    }
+    
+    .celebrate-button {
+        animation-duration: 3s;
+    }
+    
+    .particle {
+        animation-duration: 6s;
+    }
+    
+    .floating-heart {
+        animation-duration: 6s;
+    }
+}
+
+/* ===== HOVER DESACTIVADO EN TOUCH ===== */
+@media (hover: none) {
+    .photo-item:hover,
+    .wish-card:hover,
+    .message-card:hover,
+    .counter-card:hover,
+    .gallery-btn:hover,
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .count-button:hover {
+        transform: none;
+        box-shadow: initial;
+    }
+    
+    .photo-item:hover::before,
+    .wish-card:hover::before,
+    .gallery-btn:hover::before,
+    .count-button:hover::before {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .photo-item:hover img {
+        transform: none;
+    }
+    
+    .special-card:hover {
+        transform: none;
+    }
+    
+    .special-card:hover .card-front,
+    .special-card:hover .card-back {
+        transform: none;
+    }
+}
+
+/* ===== INTERACCIONES TÁCTILES ===== */
+@media (pointer: coarse) {
+    .interactive-element,
+    .photo-item,
+    .wish-card,
+    .gallery-btn,
+    .primary-btn,
+    .secondary-btn,
+    .count-button,
+    .special-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .gallery-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .primary-btn,
+    .secondary-btn {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+    }
+    
+    .count-button {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== MODO ALTO CONTRASTE ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --pink-1: #ffffff;
+        --pink-2: #ff0066;
+        --pink-3: #cc0052;
+        --pink-4: #990033;
+        --pink-5: #660022;
+        
+        --blue-1: #ffffff;
+        --blue-2: #0066ff;
+        --blue-3: #0052cc;
+        --blue-4: #003399;
+        --blue-5: #002266;
+        
+        --wine-1: #ffffff;
+        --wine-2: #800020;
+        --wine-3: #660019;
+        --wine-4: #4d0013;
+        --wine-5: #33000d;
+        
+        --dark-1: #000000;
+        --dark-2: #000000;
+        --dark-3: #333333;
+        --dark-4: #666666;
+        --dark-5: #999999;
+        
+        --white-1: #ffffff;
+        --white-2: #ffffff;
+        --white-3: #ffffff;
+        --white-4: #ffffff;
+        --white-5: #ffffff;
+    }
+    
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #000000;
+    }
+    
+    .primary-btn,
+    .secondary-btn,
+    .count-button {
+        border: 2px solid #000000;
+    }
+    
+    .photo-item,
+    .wish-card,
+    .message-card,
+    .counter-card {
+        border: 2px solid #000000;
+    }
+}

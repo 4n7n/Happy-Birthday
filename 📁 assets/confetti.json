@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "name": "Celebración de Cumpleaños - Mamá",
+    "version": "1.0.0",
+    "description": "Configuración completa de efectos visuales para la celebración especial",
+    "author": "Sistema de Celebración",
+    "created": "2025-07-09",
+    "theme": "birthday-celebration"
+  },
+  "confetti": {
+    "types": [
+      {
+        "id": "birthday_classic",
+        "name": "Confetti Clásico de Cumpleaños",
+        "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1", "#f7b731", "#5f27cd", "#ff9ff3", "#54a0ff"],
+        "shapes": ["circle", "square", "triangle", "star"],
+        "sizes": {
+          "min": 4,
+          "max": 12
+        },
+        "count": 200,
+        "duration": 3000,
+        "gravity": 0.5,
+        "velocity": {
+          "x": { "min": -10, "max": 10 },
+          "y": { "min": 2, "max": 8 }
+        },
+        "rotation": {
+          "speed": { "min": -20, "max": 20 },
+          "initial": { "min": 0, "max": 360 }
+        }
+      },
+      {
+        "id": "heart_shower",
+        "name": "Lluvia de Corazones",
+        "symbols": ["💕", "❤️", "💖", "💗", "💓", "💝", "💘", "💞"],
+        "colors": ["#ff6b6b", "#ff1744", "#e91e63", "#f06292"],
+        "count": 50,
+        "duration": 4000,
+        "sizes": {
+          "min": 20,
+          "max": 35
+        },
+        "animation": "float_down",
+        "opacity": {
+          "start": 1.0,
+          "end": 0.0
+        }
+      },
+      {
+        "id": "sparkle_magic",
+        "name": "Destellos Mágicos",
+        "symbols": ["✨", "⭐", "🌟", "💫", "🔸", "🔹", "◆", "◇"],
+        "colors": ["#f7b731", "#ffd700", "#ffeb3b", "#fff59d"],
+        "count": 75,
+        "duration": 6000,
+        "animation": "twinkle",
+        "behavior": "ambient",
+        "sizes": {
+          "min": 15,
+          "max": 25
+        }
+      },
+      {
+        "id": "celebration_burst",
+        "name": "Explosión de Celebración",
+        "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1", "#f7b731", "#5f27cd"],
+        "shapes": ["circle", "star", "triangle"],
+        "count": 150,
+        "duration": 2500,
+        "pattern": "burst",
+        "origin": "center",
+        "spread": 360,
+        "velocity": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sequences": [
+      {
+        "id": "birthday_sequence",
+        "name": "Secuencia Completa de Cumpleaños",
+        "steps": [
+          {
+            "delay": 0,
+            "type": "celebration_burst",
+            "repeat": 1
+          },
+          {
+            "delay": 500,
+            "type": "heart_shower",
+            "repeat": 1
+          },
+          {
+            "delay": 1000,
+            "type": "birthday_classic",
+            "repeat": 2
+          },
+          {
+            "delay": 2000,
+            "type": "sparkle_magic",
+            "repeat": 1
+          }
+        ]
+      }
+    ]
+  },
+  "particles": {
+    "systems": [
+      {
+        "id": "ambient_particles",
+        "name": "Partículas Ambientales",
+        "count": 100,
+        "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1", "#f7b731"],
+        "shapes": ["circle"],
+        "behavior": "float",
+        "size": {
+          "min": 2,
+          "max": 6
+        },
+        "opacity": {
+          "min": 0.3,
+          "max": 0.8
+        },
+        "speed": {
+          "min": 0.5,
+          "max": 2.0
+        },
+        "lifetime": 8000
+      },
+      {
+        "id": "floating_hearts",
+        "name": "Corazones Flotantes Continuos",
+        "symbols": ["💕", "❤️", "💖"],
+        "count": 20,
+        "spawn_rate": 150,
+        "behavior": "continuous_float",
+        "size": {
+          "min": 25,
+          "max": 40
+        },
+        "animation": "gentle_sway",
+        "lifetime": 6000
+      },
+      {
+        "id": "sparkle_trail",
+        "name": "Rastro de Destellos",
+        "symbols": ["✨", "⭐"],
+        "count": 30,
+        "behavior": "mouse_follow",
+        "delay": 100,
+        "size": {
+          "min": 10,
+          "max": 20
+        },
+        "fade_duration": 1000
+      }
+    ]
+  },
+  "animations": {
+    "presets": [
+      {
+        "id": "heartbeat",
+        "name": "Latido de Corazón",
+        "keyframes": [
+          { "time": 0, "scale": 1.0, "opacity": 1.0 },
+          { "time": 50, "scale": 1.1, "opacity": 1.0 },
+          { "time": 100, "scale": 1.0, "opacity": 1.0 }
+        ],
+        "duration": 1500,
+        "easing": "ease-in-out",
+        "infinite": true
+      },
+      {
+        "id": "gentle_float",
+        "name": "Flotación Suave",
+        "keyframes": [
+          { "time": 0, "translateY": 0, "opacity": 0.8 },
+          { "time": 50, "translateY": -20, "opacity": 1.0 },
+          { "time": 100, "translateY": 0, "opacity": 0.8 }
+        ],
+        "duration": 3000,
+        "easing": "ease-in-out",
+        "infinite": true,
+        "alternate": true
+      },
+      {
+        "id": "sparkle_twinkle",
+        "name": "Destello Parpadeante",
+        "keyframes": [
+          { "time": 0, "opacity": 0, "scale": 0.5, "rotate": 0 },
+          { "time": 25, "opacity": 1, "scale": 1.0, "rotate": 90 },
+          { "time": 75, "opacity": 1, "scale": 1.0, "rotate": 270 },
+          { "time": 100, "opacity": 0, "scale": 0.5, "rotate": 360 }
+        ],
+        "duration": 2000,
+        "easing": "ease-in-out",
+        "infinite": true
+      },
+      {
+        "id": "confetti_fall",
+        "name": "Caída de Confetti",
+        "keyframes": [
+          { "time": 0, "translateY": -20, "rotate": 0, "opacity": 1 },
+          { "time": 100, "translateY": "100vh", "rotate": 720, "opacity": 0 }
+        ],
+        "duration": 3000,
+        "easing": "ease-in"
+      },
+      {
+        "id": "explosion_burst",
+        "name": "Explosión Radial",
+        "keyframes": [
+          { "time": 0, "scale": 0, "opacity": 1 },
+          { "time": 20, "scale": 1.2, "opacity": 1 },
+          { "time": 100, "scale": 0.5, "opacity": 0 }
+        ],
+        "duration": 1500,
+        "easing": "ease-out"
+      }
+    ]
+  },
+  "effects": {
+    "fireworks": [
+      {
+        "id": "birthday_firework",
+        "name": "Fuego Artificial de Cumpleaños",
+        "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1", "#f7b731", "#5f27cd"],
+        "sparks": 30,
+        "radius": 100,
+        "duration": 1500,
+        "trail_length": 50,
+        "explosion_delay": 800
+      },
+      {
+        "id": "heart_firework",
+        "name": "Fuego Artificial de Corazones",
+        "colors": ["#ff6b6b", "#ff1744", "#e91e63"],
+        "symbols": ["💕", "❤️"],
+        "sparks": 25,
+        "radius": 80,
+        "duration": 2000,
+        "pattern": "heart_shape"
+      }
+    ],
+    "ripples": [
+      {
+        "id": "celebration_ripple",
+        "name": "Onda de Celebración",
+        "color": "#ff6b6b",
+        "opacity": 0.6,
+        "max_radius": 300,
+        "duration": 2000,
+        "count": 5,
+        "interval": 300
+      }
+    ],
+    "text_effects": [
+      {
+        "id": "floating_message",
+        "name": "Mensaje Flotante",
+        "messages": [
+          "¡Te amo mamá!",
+          "¡Feliz cumpleaños!",
+          "Eres la mejor",
+          "💕 Con amor 💕",
+          "¡Que tengas un día especial!"
+        ],
+        "font_size": "2rem",
+        "color": "#ff6b6b",
+        "animation": "float_up",
+        "duration": 3000,
+        "shadow": true
+      }
+    ]
+  },
+  "themes": {
+    "birthday_mama": {
+      "primary_color": "#ff6b6b",
+      "secondary_color": "#4ecdc4",
+      "accent_color": "#f7b731",
+      "background_gradient": "linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%)",
+      "particle_density": "medium",
+      "animation_speed": "normal",
+      "celebration_intensity": "high"
+    },
+    "elegant_celebration": {
+      "primary_color": "#d63384",
+      "secondary_color": "#6f42c1",
+      "accent_color": "#fd7e14",
+      "background_gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "particle_density": "low",
+      "animation_speed": "slow",
+      "celebration_intensity": "medium"
+    },
+    "vibrant_party": {
+      "primary_color": "#20c997",
+      "secondary_color": "#fd7e14",
+      "accent_color": "#e83e8c",
+      "background_gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "particle_density": "high",
+      "animation_speed": "fast",
+      "celebration_intensity": "maximum"
+    }
+  },
+  "sounds": {
+    "celebration_sounds": [
+      {
+        "id": "confetti_pop",
+        "frequency": 1000,
+        "duration": 100,
+        "type": "sine"
+      },
+      {
+        "id": "heart_chime",
+        "frequency": 1200,
+        "duration": 150,
+        "type": "sine"
+      },
+      {
+        "id": "sparkle_ting",
+        "frequency": 2000,
+        "duration": 80,
+        "type": "sine"
+      },
+      {
+        "id": "celebration_fanfare",
+        "notes": [
+          { "frequency": 523, "duration": 200 },
+          { "frequency": 659, "duration": 200 },
+          { "frequency": 784, "duration": 400 }
+        ]
+      }
+    ]
+  },
+  "triggers": {
+    "automatic": [
+      {
+        "event": "page_load",
+        "delay": 1000,
+        "effect": "ambient_particles"
+      },
+      {
+        "event": "celebration_start",
+        "delay": 0,
+        "effect": "birthday_sequence"
+      }
+    ],
+    "interactive": [
+      {
+        "event": "click",
+        "effect": "celebration_burst",
+        "sound": "confetti_pop"
+      },
+      {
+        "event": "hover",
+        "effect": "sparkle_trail",
+        "sound": "sparkle_ting"
+      },
+      {
+        "event": "button_press",
+        "effect": "heart_shower",
+        "sound": "heart_chime"
+      }
+    ]
+  },
+  "performance": {
+    "optimization": {
+      "max_particles": 500,
+      "cleanup_interval": 5000,
+      "frame_rate_target": 60,
+      "reduce_on_mobile": true,
+      "gpu_acceleration": true
+    },
+    "quality_levels": {
+      "high": {
+        "particle_count_multiplier": 1.0,
+        "animation_quality": "smooth",
+        "effects_enabled": true
+      },
+      "medium": {
+        "particle_count_multiplier": 0.7,
+        "animation_quality": "balanced",
+        "effects_enabled": true
+      },
+      "low": {
+        "particle_count_multiplier": 0.4,
+        "animation_quality": "performance",
+        "effects_enabled": false
+      }
+    }
+  },
+  "customization": {
+    "user_preferences": {
+      "enable_sound": true,
+      "particle_density": "medium",
+      "celebration_duration": "normal",
+      "auto_celebration": true,
+      "theme": "birthday_mama"
+    },
+    "accessibility": {
+      "reduce_motion": false,
+      "high_contrast": false,
+      "screen_reader_friendly": true,
+      "keyboard_navigation": true
+    }
+  },
+  "messages": {
+    "dedication_texts": [
+      "Para la mujer más especial del mundo",
+      "Tu amor ilumina nuestros días",
+      "Gracias por ser nuestra inspiración",
+      "Eres el corazón de nuestra familia",
+      "Tu sonrisa es nuestro tesoro más preciado",
+      "Con todo nuestro amor en tu día especial",
+      "Que este nuevo año te traiga mucha felicidad",
+      "Eres la mejor mamá del universo"
+    ],
+    "celebration_phrases": [
+      "¡Feliz Cumpleaños!",
+      "¡Que tengas un día maravilloso!",
+      "¡Celebremos juntos!",
+      "¡Eres increíble!",
+      "¡Te queremos mucho!",
+      "¡Disfruta tu día especial!",
+      "¡Muchas felicidades!",
+      "¡Que todos tus deseos se cumplan!"
+    ]
+  },
+  "special_moments": {
+    "milestones": [
+      {
+        "trigger": "celebration_start",
+        "effect": "birthday_sequence",
+        "message": "¡Comienza la celebración!",
+        "duration": 5000
+      },
+      {
+        "trigger": "30_seconds",
+        "effect": "heart_shower",
+        "message": "Con todo nuestro amor",
+        "duration": 3000
+      },
+      {
+        "trigger": "1_minute",
+        "effect": "sparkle_magic",
+        "message": "Eres mágica, mamá",
+        "duration": 4000
+      },
+      {
+        "trigger": "song_end",
+        "effect": "celebration_burst",
+        "message": "¡Te amo mucho!",
+        "duration": 3000
+      }
+    ]
+  },
+  "responsive_design": {
+    "breakpoints": {
+      "mobile": {
+        "max_width": "768px",
+        "particle_reduction": 0.5,
+        "animation_simplification": true,
+        "touch_optimized": true
+      },
+      "tablet": {
+        "max_width": "1024px",
+        "particle_reduction": 0.7,
+        "animation_simplification": false,
+        "touch_optimized": true
+      },
+      "desktop": {
+        "min_width": "1025px",
+        "particle_reduction": 1.0,
+        "animation_simplification": false,
+        "touch_optimized": false
+      }
+    }
+  },
+  "version_info": {
+    "config_version": "1.0.0",
+    "compatibility": {
+      "minimum_browser_version": {
+        "chrome": "60",
+        "firefox": "55",
+        "safari": "11",
+        "edge": "79"
+      },
+      "features_required": [
+        "CSS3 animations",
+        "Canvas API",
+        "Web Audio API",
+        "ES6 support"
+      ]
+    },
+    "updates": {
+      "last_modified": "2025-07-09",
+      "change_log": [
+        "Configuración inicial completa",
+        "Efectos de confetti personalizados",
+        "Sistema de partículas optimizado",
+        "Animaciones responsivas",
+        "Temas de celebración",
+        "Integración de audio",
+        "Mensajes de dedicatoria"
+      ]
+    }
+  }
+}

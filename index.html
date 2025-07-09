@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Mamá!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="📁 css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor de partículas de fondo -->
+    <div id="particles-container"></div>
+    
+    <!-- Contenedor de efectos especiales -->
+    <div id="effects-container"></div>
+    
+    <!-- Sección principal hero -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <div class="sparkle-border">
+                <h1 class="main-title glitter-text">¡Feliz Cumpleaños Mamá!</h1>
+            </div>
+            <div class="cake-container">
+                <div class="cake-animation">🎂</div>
+                <div class="candles-glow"></div>
+            </div>
+            <p class="hero-subtitle">El día más especial para la persona más especial</p>
+            <div class="button-group">
+                <button id="celebrate-btn" class="celebrate-button primary-btn">
+                    <span class="btn-text">¡Celebrar!</span>
+                    <span class="btn-icon">🎉</span>
+                </button>
+                <button id="music-btn" class="music-button secondary-btn">
+                    <span class="btn-text">🎵 Música</span>
+                </button>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-hearts"></div>
+        </div>
+    </header>
+
+    <!-- Sección principal de contenido -->
+    <main>
+        <!-- Sección de recuerdos y galería -->
+        <section class="memories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recuerdos Especiales</h2>
+                    <p class="section-subtitle">Momentos preciosos que guardamos en el corazón</p>
+                </div>
+                <div id="photo-gallery" class="photo-gallery">
+                    <!-- Las fotos se generan dinámicamente con JavaScript -->
+                </div>
+                <div class="gallery-controls">
+                    <button id="prev-gallery" class="gallery-btn">❮</button>
+                    <button id="next-gallery" class="gallery-btn">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de mensaje personalizado -->
+        <section class="message-section">
+            <div class="container">
+                <div class="message-card glass-effect">
+                    <div class="message-header">
+                        <h3 class="message-title">Con Todo Mi Amor</h3>
+                        <div class="heart-divider">💕</div>
+                    </div>
+                    <div class="message-content">
+                        <p class="heartfelt-message">
+                            Querida mamá, en tu día especial quiero que sepas lo mucho que significas para mí. 
+                            Eres mi inspiración, mi guía y mi mejor amiga. Gracias por todos los sacrificios, 
+                            por tu amor incondicional y por ser la mujer más fuerte que conozco.
+                        </p>
+                        <p class="signature">Con infinito amor, tu hijo/a que te adora 💝</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de deseos especiales -->
+        <section class="wishes-section">
+            <div class="container">
+                <div class="wishes-grid">
+                    <div class="wish-card">
+                        <div class="wish-icon">🌟</div>
+                        <h4>Salud</h4>
+                        <p>Que tengas muchos años más de vida plena y saludable</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">😊</div>
+                        <h4>Felicidad</h4>
+                        <p>Que cada día esté lleno de sonrisas y momentos felices</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">💖</div>
+                        <h4>Amor</h4>
+                        <p>Que siempre te sientas amada y valorada como te mereces</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">🎁</div>
+                        <h4>Sorpresas</h4>
+                        <p>Que este nuevo año te traiga lindas sorpresas y aventuras</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de contador de edad -->
+        <section class="counter-section">
+            <div class="container">
+                <div class="counter-card">
+                    <h3>¡Celebrando tus increíbles años!</h3>
+                    <div class="counter-display">
+                        <div class="counter-number" id="age-counter">0</div>
+                        <div class="counter-label">Años de sabiduría y amor</div>
+                    </div>
+                    <button id="count-btn" class="count-button">Contar años 🎈</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de tarjeta especial -->
+        <section class="card-section">
+            <div class="container">
+                <div class="special-card" id="birthday-card">
+                    <div class="card-front">
+                        <div class="card-decoration">
+                            <div class="ribbon">Para la mejor mamá</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Una tarjeta especial</h3>
+                            <p>Haz clic para abrir</p>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-message">
+                            <h4>¡Eres extraordinaria!</h4>
+                            <p>Gracias por ser mi ejemplo de fortaleza, amor y dedicación. 
+                               Cada día aprendo algo nuevo de ti. Te amo más de lo que las palabras pueden expresar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer con información adicional -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <p>Hecho con 💝 para la mejor mamá del mundo</p>
+                <div class="footer-decoration">
+                    <span class="footer-heart">💕</span>
+                    <span class="footer-heart">💖</span>
+                    <span class="footer-heart">💝</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Elementos de efectos especiales -->
+    <div id="confetti-container"></div>
+    <div id="special-message-container"></div>
+    
+    <!-- Audio elements -->
+    <audio id="celebration-audio" preload="auto">
+        <source src="assets/birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts de JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/particles.js"></script>
+    
+    <!-- Script de inicialización -->
+    <script>
+        // Inicialización cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎉 ¡Celebración de cumpleaños iniciada!');
+            
+            // Inicializar todos los componentes
+            initializeBirthdayPage();
+            
+            // Agregar efectos de entrada
+            document.body.classList.add('page-loaded');
+        });
+        
+        // Función para inicializar la página
+        function initializeBirthdayPage() {
+            // Crear efecto de entrada suave
+            setTimeout(() => {
+                document.querySelector('.hero-content').style.opacity = '1';
+                document.querySelector('.hero-content').style.transform = 'translateY(0)';
+            }, 100);
+            
+            // Inicializar contador de edad
+            setTimeout(() => {
+                const ageCounter = document.getElementById('age-counter');
+                if (ageCounter) {
+                    let count = 0;
+                    const targetAge = 43; // Cambia por la edad real
+                    const interval = setInterval(() => {
+                        count++;
+                        ageCounter.textContent = count;
+                        if (count >= targetAge) {
+                            clearInterval(interval);
+                            ageCounter.style.color = '#ff6b6b';
+                        }
+                    }, 100);
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
