@@ -4,27 +4,780 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz Cumpleaños Mamá!</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="📁 css/main.css" rel="stylesheet">
+    
+    <style>
+        /* ===== MAIN.CSS INTEGRADO ===== */
+        :root {
+            --color-primary-pink: #ff6b6b;
+            --color-secondary-pink: #ff8e8e;
+            --color-light-pink: #fce4ec;
+            --color-pink-palo: #f8bbd9;
+            
+            --color-primary-blue: #4ecdc4;
+            --color-secondary-blue: #44a08d;
+            --color-light-blue: #e3f2fd;
+            
+            --color-primary-purple: #667eea;
+            --color-secondary-purple: #764ba2;
+            
+            --color-wine: #c2185b;
+            --color-dark-wine: #ad1457;
+            
+            --color-gold: #ffd93d;
+            --color-light-gold: #ffb347;
+            
+            --color-white: #ffffff;
+            --color-light-gray: #f8f9fa;
+            --color-medium-gray: #dee2e6;
+            --color-dark-gray: #2d2d2d;
+            --color-black: #1a1a1a;
+            
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Dancing Script', cursive;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 2.5rem;
+            --spacing-3xl: 3rem;
+            --spacing-4xl: 4rem;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+            --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.6);
+            
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --border-radius-2xl: 1.5rem;
+            --border-radius-full: 9999px;
+            
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --z-background: -1;
+            --z-base: 0;
+            --z-particles: 1;
+            --z-content: 10;
+            --z-header: 50;
+            --z-overlay: 100;
+            --z-modal: 1000;
+            --z-tooltip: 1001;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            background: linear-gradient(135deg, var(--color-primary-purple) 0%, var(--color-secondary-purple) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: var(--spacing-md);
+            padding-right: var(--spacing-md);
+            position: relative;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary-pink), var(--color-gold), var(--color-primary-blue), var(--color-wine));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 3s ease-in-out infinite;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: var(--z-content);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+
+        .page-loaded .hero-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sparkle-border {
+            position: relative;
+            display: inline-block;
+            padding: var(--spacing-lg);
+            border-radius: 20px;
+            background: linear-gradient(45deg, var(--color-primary-pink), var(--color-gold), var(--color-primary-blue), var(--color-wine));
+            background-size: 300% 300%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        .main-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-white);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-white);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cake-container {
+            position: relative;
+            margin: var(--spacing-lg) 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cake-animation {
+            font-size: clamp(4rem, 10vw, 6rem);
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(var(--shadow-glow));
+            position: relative;
+            z-index: 2;
+        }
+
+        .candles-glow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .button-group {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--border-radius-full);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            user-select: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--color-primary-pink), var(--color-secondary-pink));
+            color: var(--color-white);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, var(--color-primary-blue), var(--color-secondary-blue));
+            color: var(--color-white);
+        }
+
+        .section {
+            padding: var(--spacing-4xl) 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            color: var(--color-white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .photo-item {
+            background: var(--color-white);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-smooth);
+            transform: translateY(0);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .photo-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            padding: var(--spacing-md);
+            color: var(--color-dark-gray);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .message-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl);
+            text-align: center;
+        }
+
+        .message-title {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .heart-divider {
+            font-size: 2rem;
+            margin: var(--spacing-md) 0;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        .heartfelt-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 300;
+        }
+
+        .signature {
+            font-family: var(--font-secondary);
+            font-size: 1.3rem;
+            color: var(--color-primary-pink);
+            font-weight: 600;
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary-pink);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .wish-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .wish-card h4 {
+            font-size: 1.3rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .wish-card p {
+            color: rgba(255,255,255,0.8);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .counter-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-3xl);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .counter-card h3 {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 700;
+        }
+
+        .counter-display {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .counter-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .counter-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: var(--spacing-xs);
+            font-weight: 300;
+        }
+
+        .count-button {
+            background: linear-gradient(45deg, var(--color-gold), var(--color-light-gold));
+            color: var(--color-white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-md);
+        }
+
+        .count-button:hover {
+            background: linear-gradient(45deg, var(--color-light-gold), var(--color-gold));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .special-card {
+            max-width: 500px;
+            margin: 0 auto;
+            height: 300px;
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.6s;
+            padding: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, var(--color-pink-palo), var(--color-primary-pink));
+            color: var(--color-white);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, var(--color-primary-blue), var(--color-secondary-blue));
+            color: var(--color-white);
+            transform: rotateY(180deg);
+        }
+
+        .special-card.flipped .card-front {
+            transform: rotateY(-180deg);
+        }
+
+        .special-card.flipped .card-back {
+            transform: rotateY(0deg);
+        }
+
+        .ribbon {
+            background: var(--color-wine);
+            color: var(--color-white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .card-message h4 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .card-message p {
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .footer-section {
+            background: var(--color-dark-gray);
+            color: var(--color-white);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .footer-decoration {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .footer-heart {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .footer-heart:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .footer-heart:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        #particles-container, #effects-container, #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: var(--z-overlay);
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes glow {
+            0% { 
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            100% { 
+                opacity: 0.9;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes starFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes specialMessageAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes specialMessageDisappear {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5) rotate(10deg);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: var(--spacing-sm);
+                padding-right: var(--spacing-sm);
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ESTILOS PARA REPRODUCTOR DE MÚSICA ===== */
+        #music-controls {
+            background: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        #music-controls button {
+            transition: all 0.3s ease;
+        }
+
+        #music-controls button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        #play-pause-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        #volume-slider {
+            appearance: none;
+            background: rgba(255, 255, 255, 0.3);
+            height: 4px;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        #volume-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-primary-pink);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #volume-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-primary-pink);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #progress-bar {
+            background: linear-gradient(45deg, var(--color-primary-pink), var(--color-secondary-pink)) !important;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .audio-info {
+            font-family: var(--font-primary);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Contenedor de partículas de fondo -->
+    <!-- Contenedores de efectos -->
     <div id="particles-container"></div>
-    
-    <!-- Contenedor de efectos especiales -->
     <div id="effects-container"></div>
     
     <!-- Sección principal hero -->
     <header class="hero-section">
         <div class="hero-content">
             <div class="sparkle-border">
-                <h1 class="main-title glitter-text">¡Feliz Cumpleaños Mamá!</h1>
+                <h1 class="main-title gradient-text">¡Feliz Cumpleaños Mamá!</h1>
             </div>
             <div class="cake-container">
                 <div class="cake-animation">🎂</div>
@@ -32,41 +785,46 @@
             </div>
             <p class="hero-subtitle">El día más especial para la persona más especial</p>
             <div class="button-group">
-                <button id="celebrate-btn" class="celebrate-button primary-btn">
+                <button id="celebrate-btn" class="btn btn-primary">
                     <span class="btn-text">¡Celebrar!</span>
                     <span class="btn-icon">🎉</span>
                 </button>
-                <button id="music-btn" class="music-button secondary-btn">
+                <button id="music-btn" class="btn btn-secondary">
                     <span class="btn-text">🎵 Música</span>
                 </button>
             </div>
         </div>
-        <div class="hero-decoration">
-            <div class="floating-hearts"></div>
-        </div>
+        <div class="floating-hearts"></div>
     </header>
 
     <!-- Sección principal de contenido -->
     <main>
         <!-- Sección de recuerdos y galería -->
-        <section class="memories-section">
+        <section class="section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Recuerdos Especiales</h2>
                     <p class="section-subtitle">Momentos preciosos que guardamos en el corazón</p>
                 </div>
                 <div id="photo-gallery" class="photo-gallery">
-                    <!-- Las fotos se generan dinámicamente con JavaScript -->
-                </div>
-                <div class="gallery-controls">
-                    <button id="prev-gallery" class="gallery-btn">❮</button>
-                    <button id="next-gallery" class="gallery-btn">❯</button>
+                    <div class="photo-item">
+                        <div class="gallery-image" style="background: linear-gradient(45deg, #ff6b6b, #ffd93d); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">📸</div>
+                        <div class="photo-caption">Un momento inolvidable</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="gallery-image" style="background: linear-gradient(45deg, #4ecdc4, #44a08d); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">💕</div>
+                        <div class="photo-caption">Momentos de alegría</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="gallery-image" style="background: linear-gradient(45deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">🌟</div>
+                        <div class="photo-caption">Celebraciones pasadas</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Sección de mensaje personalizado -->
-        <section class="message-section">
+        <section class="section">
             <div class="container">
                 <div class="message-card glass-effect">
                     <div class="message-header">
@@ -86,8 +844,11 @@
         </section>
 
         <!-- Sección de deseos especiales -->
-        <section class="wishes-section">
+        <section class="section">
             <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mis Deseos Para Ti</h2>
+                </div>
                 <div class="wishes-grid">
                     <div class="wish-card">
                         <div class="wish-icon">🌟</div>
@@ -114,7 +875,7 @@
         </section>
 
         <!-- Sección de contador de edad -->
-        <section class="counter-section">
+        <section class="section">
             <div class="container">
                 <div class="counter-card">
                     <h3>¡Celebrando tus increíbles años!</h3>
@@ -128,7 +889,7 @@
         </section>
 
         <!-- Sección de tarjeta especial -->
-        <section class="card-section">
+        <section class="section">
             <div class="container">
                 <div class="special-card" id="birthday-card">
                     <div class="card-front">
@@ -152,7 +913,7 @@
         </section>
     </main>
 
-    <!-- Footer con información adicional -->
+    <!-- Footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-content">
@@ -168,58 +929,726 @@
 
     <!-- Elementos de efectos especiales -->
     <div id="confetti-container"></div>
-    <div id="special-message-container"></div>
     
-    <!-- Audio elements -->
-    <audio id="celebration-audio" preload="auto">
-        <source src="assets/birthday-song.mp3" type="audio/mpeg">
+    <!-- Reproductor de Audio Local -->
+    <audio id="celebration-audio" preload="auto" loop>
+        <source src="assets/George Benson - Give Me The Night (Official Music Video).mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento audio.
     </audio>
 
-    <!-- Scripts de JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/gallery.js"></script>
-    <script src="js/music.js"></script>
-    <script src="js/particles.js"></script>
-    
-    <!-- Script de inicialización -->
+    <!-- Controles de música personalizados -->
+    <div id="music-controls" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 10000; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; color: white; min-width: 300px;">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+            <button id="play-pause-btn" style="background: #ff6b6b; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 20px;">▶️</button>
+            <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">George Benson - Give Me The Night</div>
+                <div style="background: rgba(255,255,255,0.3); height: 4px; border-radius: 2px; position: relative;">
+                    <div id="progress-bar" style="background: #ff6b6b; height: 100%; border-radius: 2px; width: 0%; transition: width 0.1s;"></div>
+                </div>
+            </div>
+            <input id="volume-slider" type="range" min="0" max="100" value="70" style="width: 80px;">
+            <button onclick="document.getElementById('music-controls').style.display='none'; BirthdayApp.stopLocalMusic()" style="background: #666; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;">×</button>
+        </div>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.7);">
+            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <!-- YouTube Player (respaldo) -->
+    <div id="youtube-player" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10000; background: rgba(0,0,0,0.9); padding: 20px; border-radius: 15px;">
+        <div style="color: white; margin-bottom: 15px; text-align: center;">
+            <strong>🎵 Reproductor de Respaldo</strong><br>
+            <small>(El archivo MP3 local no se pudo cargar)</small>
+        </div>
+        <button onclick="document.getElementById('youtube-player').style.display='none'; BirthdayApp.state.musicPlaying = false; BirthdayApp.elements.musicBtn.innerHTML = '🎵 Música';" style="position: absolute; top: 10px; right: 10px; background: #ff6b6b; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;">×</button>
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/qq09UkPRdFY?autoplay=1&loop=1&playlist=qq09UkPRdFY" 
+                title="George Benson - Give Me The Night" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
     <script>
+        // ===== MAIN.JS INTEGRADO =====
+        const BirthdayApp = {
+            state: {
+                isInitialized: false,
+                celebrationActive: false,
+                musicPlaying: false,
+                currentTheme: 'default',
+                pageLoaded: false
+            },
+            
+            config: {
+                celebrationDuration: 10000,
+                defaultAge: 43,
+                musicVolume: 0.7
+            },
+            
+            elements: {
+                celebrateBtn: null,
+                musicBtn: null,
+                ageCounter: null,
+                heroContent: null,
+                body: null,
+                birthdayCard: null
+            }
+        };
+
         // Inicialización cuando se carga la página
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎉 ¡Celebración de cumpleaños iniciada!');
-            
-            // Inicializar todos los componentes
-            initializeBirthdayPage();
-            
-            // Agregar efectos de entrada
-            document.body.classList.add('page-loaded');
+            console.log('🎂 Iniciando aplicación de cumpleaños...');
+            BirthdayApp.init();
         });
-        
-        // Función para inicializar la página
-        function initializeBirthdayPage() {
-            // Crear efecto de entrada suave
-            setTimeout(() => {
-                document.querySelector('.hero-content').style.opacity = '1';
-                document.querySelector('.hero-content').style.transform = 'translateY(0)';
-            }, 100);
+
+        BirthdayApp.init = function() {
+            try {
+                this.setupDOMReferences();
+                this.setupEventListeners();
+                this.setupInitialEffects();
+                
+                this.state.isInitialized = true;
+                this.state.pageLoaded = true;
+                document.body.classList.add('page-loaded');
+                
+                console.log('🎉 ¡Aplicación lista para celebrar!');
+            } catch (error) {
+                console.error('❌ Error inicializando la aplicación:', error);
+            }
+        };
+
+        BirthdayApp.setupDOMReferences = function() {
+            this.elements.body = document.body;
+            this.elements.celebrateBtn = document.getElementById('celebrate-btn');
+            this.elements.musicBtn = document.getElementById('music-btn');
+            this.elements.ageCounter = document.getElementById('age-counter');
+            this.elements.heroContent = document.querySelector('.hero-content');
+            this.elements.birthdayCard = document.getElementById('birthday-card');
+        };
+
+        BirthdayApp.setupEventListeners = function() {
+            // Evento del botón celebrar
+            if (this.elements.celebrateBtn) {
+                this.elements.celebrateBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.handleCelebrationToggle();
+                });
+            }
             
-            // Inicializar contador de edad
-            setTimeout(() => {
-                const ageCounter = document.getElementById('age-counter');
-                if (ageCounter) {
-                    let count = 0;
-                    const targetAge = 43; // Cambia por la edad real
-                    const interval = setInterval(() => {
-                        count++;
-                        ageCounter.textContent = count;
-                        if (count >= targetAge) {
-                            clearInterval(interval);
-                            ageCounter.style.color = '#ff6b6b';
-                        }
-                    }, 100);
+            // Evento del botón de música
+            if (this.elements.musicBtn) {
+                this.elements.musicBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.handleMusicToggle();
+                });
+            }
+
+            // Evento de la tarjeta especial
+            if (this.elements.birthdayCard) {
+                this.elements.birthdayCard.addEventListener('click', () => {
+                    this.elements.birthdayCard.classList.toggle('flipped');
+                });
+            }
+
+            // Evento del contador
+            const countBtn = document.getElementById('count-btn');
+            if (countBtn) {
+                countBtn.addEventListener('click', () => {
+                    this.animateCounterDisplay();
+                });
+            }
+            
+            // Eventos de teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                
+                switch(e.key.toLowerCase()) {
+                    case ' ':
+                    case 'enter':
+                        e.preventDefault();
+                        this.handleCelebrationToggle();
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        this.handleMusicToggle();
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        this.resetEverything();
+                        break;
+                    case 'h':
+                        e.preventDefault();
+                        this.createFloatingHearts();
+                        break;
+                    case 'c':
+                        e.preventDefault();
+                        this.createConfetti();
+                        break;
+                    case 's':
+                        e.preventDefault();
+                        this.createStarShower();
+                        break;
                 }
-            }, 2000);
-        }
+            });
+
+            // Eventos de ventana
+            window.addEventListener('resize', this.debounce(() => {
+                this.handleWindowResize();
+            }, 250));
+        };
+
+        BirthdayApp.handleCelebrationToggle = function() {
+            if (!this.state.celebrationActive) {
+                this.startCelebration();
+            } else {
+                this.stopCelebration();
+            }
+        };
+
+        BirthdayApp.startCelebration = function() {
+            console.log('🎉 ¡INICIANDO CELEBRACIÓN PRINCIPAL!');
+            
+            this.state.celebrationActive = true;
+            
+            if (this.elements.celebrateBtn) {
+                this.elements.celebrateBtn.innerHTML = '🎊 ¡Celebrando! 🎊';
+                this.elements.celebrateBtn.style.background = 'linear-gradient(45deg, #4ecdc4, #45b7d1)';
+            }
+            
+            this.executeCelebrationSequence();
+            
+            // Auto-stop después de duración configurada
+            setTimeout(() => {
+                if (this.state.celebrationActive) {
+                    this.stopCelebration();
+                }
+            }, this.config.celebrationDuration);
+        };
+
+        BirthdayApp.executeCelebrationSequence = function() {
+            // Fase 1: Efectos inmediatos (0ms)
+            setTimeout(() => {
+                this.createConfetti();
+                this.changeBackgroundTheme();
+            }, 0);
+            
+            // Fase 2: Corazones y partículas (500ms)
+            setTimeout(() => {
+                this.createFloatingHearts();
+            }, 500);
+            
+            // Fase 3: Mensaje especial (1000ms)
+            setTimeout(() => {
+                this.showSpecialMessage();
+            }, 1000);
+            
+            // Fase 4: Efectos adicionales (1500ms)
+            setTimeout(() => {
+                this.createStarShower();
+                this.animateElements();
+            }, 1500);
+        };
+
+        BirthdayApp.stopCelebration = function() {
+            console.log('🔄 Deteniendo celebración...');
+            
+            this.state.celebrationActive = false;
+            
+            if (this.elements.celebrateBtn) {
+                this.elements.celebrateBtn.innerHTML = '<span class="btn-text">¡Celebrar!</span><span class="btn-icon">🎉</span>';
+                this.elements.celebrateBtn.style.background = '';
+            }
+            
+            this.cleanupEffects();
+            this.restoreDefaultTheme();
+        };
+
+        // ===== MANEJO DE MÚSICA MEJORADO =====
+        BirthdayApp.handleMusicToggle = function() {
+            const celebrationAudio = document.getElementById('celebration-audio');
+            const musicControls = document.getElementById('music-controls');
+            const youtubePlayer = document.getElementById('youtube-player');
+            
+            if (!this.state.musicPlaying) {
+                // Intentar reproducir audio local primero
+                if (celebrationAudio) {
+                    celebrationAudio.volume = this.config.musicVolume;
+                    
+                    // Configurar el audio antes de reproducir
+                    celebrationAudio.preload = 'auto';
+                    celebrationAudio.loop = true;
+                    
+                    celebrationAudio.play().then(() => {
+                        // Éxito con audio local
+                        console.log('🎵 Reproduciendo MP3 local: George Benson - Give Me The Night');
+                        this.state.musicPlaying = true;
+                        musicControls.style.display = 'block';
+                        this.setupAudioControls();
+                        if (this.elements.musicBtn) {
+                            this.elements.musicBtn.innerHTML = '🔇 Cerrar Música';
+                        }
+                    }).catch((error) => {
+                        // Falló audio local, usar YouTube como respaldo
+                        console.log('🚫 Audio local no disponible:', error.message);
+                        console.log('🎵 Usando YouTube como respaldo');
+                        youtubePlayer.style.display = 'block';
+                        this.state.musicPlaying = true;
+                        if (this.elements.musicBtn) {
+                            this.elements.musicBtn.innerHTML = '🔇 Cerrar Música';
+                        }
+                    });
+                } else {
+                    // No hay elemento de audio, usar YouTube
+                    console.log('🎵 Elemento de audio no encontrado, usando YouTube');
+                    youtubePlayer.style.display = 'block';
+                    this.state.musicPlaying = true;
+                    if (this.elements.musicBtn) {
+                        this.elements.musicBtn.innerHTML = '🔇 Cerrar Música';
+                    }
+                }
+            } else {
+                // Detener música
+                this.stopLocalMusic();
+            }
+        };
+
+        BirthdayApp.setupAudioControls = function() {
+            const audio = document.getElementById('celebration-audio');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const volumeSlider = document.getElementById('volume-slider');
+            const currentTimeSpan = document.getElementById('current-time');
+            const durationSpan = document.getElementById('duration');
+
+            if (!audio || !playPauseBtn) return;
+
+            // Limpiar listeners anteriores
+            const newPlayPauseBtn = playPauseBtn.cloneNode(true);
+            playPauseBtn.parentNode.replaceChild(newPlayPauseBtn, playPauseBtn);
+
+            // Botón play/pause
+            newPlayPauseBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        newPlayPauseBtn.innerHTML = '⏸️';
+                    }).catch((error) => {
+                        console.log('Error al reproducir:', error);
+                    });
+                } else {
+                    audio.pause();
+                    newPlayPauseBtn.innerHTML = '▶️';
+                }
+            });
+
+            // Control de volumen
+            if (volumeSlider) {
+                volumeSlider.addEventListener('input', (e) => {
+                    audio.volume = e.target.value / 100;
+                    this.config.musicVolume = audio.volume;
+                });
+                volumeSlider.value = this.config.musicVolume * 100;
+            }
+
+            // Actualizar progreso
+            audio.addEventListener('timeupdate', () => {
+                if (audio.duration && !isNaN(audio.duration)) {
+                    const progress = (audio.currentTime / audio.duration) * 100;
+                    if (progressBar) {
+                        progressBar.style.width = progress + '%';
+                    }
+                    
+                    // Actualizar tiempo actual
+                    if (currentTimeSpan) {
+                        currentTimeSpan.textContent = this.formatTime(audio.currentTime);
+                    }
+                }
+            });
+
+            // Mostrar duración cuando se cargue
+            audio.addEventListener('loadedmetadata', () => {
+                if (durationSpan && audio.duration && !isNaN(audio.duration)) {
+                    durationSpan.textContent = this.formatTime(audio.duration);
+                }
+            });
+
+            // Manejar cuando termine la canción (aunque está en loop)
+            audio.addEventListener('ended', () => {
+                newPlayPauseBtn.innerHTML = '▶️';
+                if (progressBar) progressBar.style.width = '0%';
+                if (currentTimeSpan) currentTimeSpan.textContent = '0:00';
+            });
+
+            // Manejar errores de audio
+            audio.addEventListener('error', (e) => {
+                console.log('Error de audio:', e);
+                console.log('Código de error:', audio.error ? audio.error.code : 'desconocido');
+                // Cerrar reproductor y mostrar YouTube como respaldo
+                this.stopLocalMusic();
+                document.getElementById('youtube-player').style.display = 'block';
+            });
+
+            // Estado inicial
+            if (!audio.paused) {
+                newPlayPauseBtn.innerHTML = '⏸️';
+            }
+
+            console.log('🎛️ Controles de audio configurados correctamente');
+        };
+
+        BirthdayApp.stopLocalMusic = function() {
+            const audio = document.getElementById('celebration-audio');
+            const musicControls = document.getElementById('music-controls');
+            const youtubePlayer = document.getElementById('youtube-player');
+            
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+            
+            musicControls.style.display = 'none';
+            youtubePlayer.style.display = 'none';
+            
+            this.state.musicPlaying = false;
+            
+            if (this.elements.musicBtn) {
+                this.elements.musicBtn.innerHTML = '🎵 Música';
+            }
+            
+            console.log('🔇 Música detenida');
+        };
+
+        BirthdayApp.formatTime = function(seconds) {
+            if (isNaN(seconds) || !isFinite(seconds)) return '0:00';
+            
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        };
+
+        // ===== FUNCIÓN MEJORADA DE MÚSICA EN CELEBRACIÓN =====
+        BirthdayApp.startBirthdayMusic = function() {
+            // Durante la celebración, iniciar música automáticamente
+            if (!this.state.musicPlaying) {
+                console.log('🎵 Iniciando música automática durante celebración...');
+                this.handleMusicToggle();
+            }
+        };
+
+        BirthdayApp.stopMusic = function() {
+            this.stopLocalMusic();
+        };
+
+        // ===== FUNCIÓN FALLBACK MEJORADA =====
+        BirthdayApp.fallbackMusic = function() {
+            console.log('🎵 Ejecutando función fallback de música');
+            const audio = document.getElementById('celebration-audio');
+            if (audio) {
+                audio.volume = this.config.musicVolume;
+                audio.loop = true;
+                audio.play().then(() => {
+                    console.log('✅ Música fallback iniciada');
+                    this.state.musicPlaying = true;
+                }).catch((error) => {
+                    console.log('🚫 Error en música fallback:', error);
+                });
+            }
+        };
+
+        BirthdayApp.showSpecialMessage = function() {
+            const messages = [
+                '¡Te amo mucho mamá! 💕',
+                '¡Eres la mejor madre del mundo! 🌟',
+                '¡Feliz cumpleaños hermosa! 🎂',
+                '¡Gracias por todo tu amor! ❤️',
+                '¡Eres mi inspiración! ✨'
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            const messageEl = document.createElement('div');
+            messageEl.className = 'special-birthday-message';
+            messageEl.innerHTML = `
+                <div class="message-content">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d2d2d;">${randomMessage}</h2>
+                    <div class="heart-animation" style="font-size: 3rem; animation: heartBeat 1s ease-in-out infinite;">💖</div>
+                </div>
+            `;
+            
+            Object.assign(messageEl.style, {
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,182,193,0.9))',
+                padding: '40px',
+                borderRadius: '20px',
+                textAlign: 'center',
+                zIndex: '10000',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                backdropFilter: 'blur(10px)',
+                animation: 'specialMessageAppear 0.8s ease-out'
+            });
+            
+            document.body.appendChild(messageEl);
+            
+            setTimeout(() => {
+                messageEl.style.animation = 'specialMessageDisappear 0.8s ease-in forwards';
+                setTimeout(() => messageEl.remove(), 800);
+            }, 4000);
+        };
+
+        BirthdayApp.changeBackgroundTheme = function() {
+            const themes = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
+            ];
+            
+            const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+            this.state.currentTheme = randomTheme;
+            
+            if (this.elements.body) {
+                this.elements.body.style.background = randomTheme;
+                this.elements.body.style.transition = 'background 2s ease';
+            }
+        };
+
+        BirthdayApp.createFloatingHearts = function() {
+            const heartCount = 15;
+            const hearts = ['💕', '💖', '💝', '❤️', '💗', '💓', '💟'];
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.className = 'floating-heart';
+                    
+                    Object.assign(heart.style, {
+                        position: 'fixed',
+                        fontSize: `${Math.random() * 20 + 20}px`,
+                        left: `${Math.random() * 100}%`,
+                        top: '100vh',
+                        zIndex: '1000',
+                        animation: `floatUp ${3 + Math.random() * 2}s ease-out forwards`,
+                        pointerEvents: 'none'
+                    });
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 200);
+            }
+        };
+
+        BirthdayApp.createStarShower = function() {
+            const starCount = 25;
+            const stars = ['⭐', '✨', '🌟', '💫', '🌠'];
+            
+            for (let i = 0; i < starCount; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.innerHTML = stars[Math.floor(Math.random() * stars.length)];
+                    star.className = 'falling-star';
+                    
+                    Object.assign(star.style, {
+                        position: 'fixed',
+                        fontSize: `${Math.random() * 15 + 15}px`,
+                        left: `${Math.random() * 100}%`,
+                        top: '-50px',
+                        zIndex: '1000',
+                        animation: `starFall ${3 + Math.random() * 2}s ease-in forwards`,
+                        pointerEvents: 'none'
+                    });
+                    
+                    document.body.appendChild(star);
+                    
+                    setTimeout(() => star.remove(), 5000);
+                }, i * 100);
+            }
+        };
+
+        BirthdayApp.createConfetti = function() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffd93d', '#c2185b', '#667eea', '#f093fb'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.cssText = `
+                        position: fixed;
+                        width: 8px;
+                        height: 8px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        border-radius: 50%;
+                        left: ${Math.random() * 100}%;
+                        top: -10px;
+                        z-index: 1000;
+                        animation: confettiFall ${2 + Math.random() * 3}s ease-in forwards;
+                        pointer-events: none;
+                    `;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 50);
+            }
+        };
+
+        BirthdayApp.animateCounterDisplay = function() {
+            if (!this.elements.ageCounter) return;
+            
+            let count = 0;
+            const targetAge = this.config.defaultAge;
+            const increment = targetAge / 30;
+            
+            const counterInterval = setInterval(() => {
+                count += increment;
+                if (count >= targetAge) {
+                    count = targetAge;
+                    clearInterval(counterInterval);
+                    this.elements.ageCounter.style.color = '#ff6b6b';
+                    this.elements.ageCounter.style.transform = 'scale(1.2)';
+                    
+                    // Efecto de celebración del contador
+                    setTimeout(() => {
+                        this.elements.ageCounter.style.transform = 'scale(1)';
+                        this.createConfetti();
+                    }, 1000);
+                }
+                this.elements.ageCounter.textContent = Math.floor(count);
+            }, 50);
+        };
+
+        BirthdayApp.animateElements = function() {
+            const elementsToAnimate = document.querySelectorAll('.hero-content, .cake-animation, .main-title');
+            elementsToAnimate.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = 'pulse 1s ease-in-out 3';
+                }, index * 200);
+            });
+        };
+
+        BirthdayApp.setupInitialEffects = function() {
+            // Efecto de entrada para el hero
+            setTimeout(() => {
+                if (this.elements.heroContent) {
+                    this.elements.heroContent.style.opacity = '1';
+                    this.elements.heroContent.style.transform = 'translateY(0)';
+                }
+            }, 500);
+            
+            // Animación inicial del pastel
+            setTimeout(() => {
+                const cake = document.querySelector('.cake-animation');
+                if (cake) {
+                    cake.style.animation = 'bounce 2s ease-in-out infinite';
+                }
+            }, 1000);
+
+            // Debug: Verificar elemento de audio
+            const audioElement = document.getElementById('celebration-audio');
+            if (audioElement) {
+                console.log('🎵 Elemento de audio encontrado');
+                console.log('📁 Ruta del archivo:', audioElement.src || 'No definida');
+                
+                // Verificar si el archivo existe
+                audioElement.addEventListener('canplaythrough', () => {
+                    console.log('✅ Archivo MP3 cargado correctamente');
+                });
+                
+                audioElement.addEventListener('error', (e) => {
+                    console.log('❌ Error cargando MP3:', e);
+                    console.log('Código de error:', audioElement.error ? audioElement.error.code : 'desconocido');
+                });
+            } else {
+                console.log('❌ Elemento de audio no encontrado');
+            }
+        };
+
+        BirthdayApp.handleWindowResize = function() {
+            const width = window.innerWidth;
+            const title = document.querySelector('.main-title');
+            if (title) {
+                if (width < 480) {
+                    title.style.fontSize = '2rem';
+                } else if (width < 768) {
+                    title.style.fontSize = '2.5rem';
+                } else {
+                    title.style.fontSize = 'clamp(2.5rem, 8vw, 5rem)';
+                }
+            }
+        };
+
+        BirthdayApp.cleanupEffects = function() {
+            const effects = document.querySelectorAll('.floating-heart, .falling-star, .confetti-piece, .special-birthday-message');
+            effects.forEach(effect => effect.remove());
+        };
+
+        BirthdayApp.restoreDefaultTheme = function() {
+            if (this.elements.body) {
+                this.elements.body.style.background = 'linear-gradient(135deg, var(--color-primary-purple) 0%, var(--color-secondary-purple) 100%)';
+                this.state.currentTheme = 'default';
+            }
+        };
+
+        BirthdayApp.resetEverything = function() {
+            console.log('🔄 Reiniciando toda la aplicación...');
+            
+            this.stopCelebration();
+            this.cleanupEffects();
+            this.restoreDefaultTheme();
+            
+            // Resetear contador
+            if (this.elements.ageCounter) {
+                this.elements.ageCounter.textContent = '0';
+                this.elements.ageCounter.style.color = '';
+                this.elements.ageCounter.style.transform = '';
+            }
+            
+            // Cerrar música
+            if (this.state.musicPlaying) {
+                this.stopLocalMusic();
+            }
+            
+            // Resetear tarjeta
+            if (this.elements.birthdayCard) {
+                this.elements.birthdayCard.classList.remove('flipped');
+            }
+            
+            console.log('✅ Aplicación reiniciada');
+        };
+
+        // Utilidades
+        BirthdayApp.debounce = function(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        // Exponer globalmente para debugging
+        window.BirthdayApp = BirthdayApp;
+
+        // Mensajes de consola
+        console.log('%c🎂 ¡FELIZ CUMPLEAÑOS MAMÁ! 🎂', 'color: #ff6b6b; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+        console.log('%c✨ Sistema de celebración cargado ✨', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+        console.log('%c🎹 Controles disponibles:', 'color: #ffd93d; font-size: 14px; font-weight: bold;');
+        console.log('  🎉 ESPACIO: Celebrar');
+        console.log('  🎵 M: Música');
+        console.log('  🔄 R: Reset');
+        console.log('  💕 H: Corazones');
+        console.log('  🎊 C: Confeti');
+        console.log('  ⭐ S: Estrellas');
+        console.log('  🎂 Haz clic en la tarjeta para voltearla');
     </script>
 </body>
 </html>
